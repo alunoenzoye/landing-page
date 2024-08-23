@@ -1,0 +1,154 @@
+main {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;    
+
+    min-height: 800px;
+    height: 100vh;
+}
+
+.container-msg {
+    width: 300px;
+    height: max-content;
+    padding: 10px;
+
+    margin-left: 80px;
+    
+    background-color: var(--cinza);
+    
+    color: var(--azul-escuro);
+
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px var(--preto-transparente);
+}
+
+.container-msg h2 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    color: inherit;
+
+    text-align: center;
+}
+
+.form-msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: inherit;
+}
+
+.form-msg label {
+    margin-bottom: 10px;
+
+    color: inherit;
+}
+
+.form-msg input, textarea {
+    margin-bottom: 26px;
+    height: 30px;
+    padding: 5px;
+
+    background-color: var(--branco);
+
+    border: 1px solid var(--cinza2);
+    border-radius: 5px;
+
+    color: inherit;
+}
+
+.form-msg input:focus, textarea:focus {
+    background-color: var(--branco);
+    outline: 1px solid var(--azul-escuro);
+}
+
+.form-msg input[type="email"]:valid {
+    outline: 1px solid var(--verde);
+    color: var(--verde);
+}
+
+.form-msg input[type="email"]:invalid {
+    outline: 1px solid var(--vermelho);
+    color: var(--vermelho);
+}
+
+.form-msg textarea {
+    height: 120px;
+    resize: none;
+}
+
+#submit-form {
+    height: 40px;
+    margin-bottom: 0px;
+    
+    border: none;
+    outline: none;
+    background-color: var(--verde);
+    font-weight: 700;
+}
+
+#submit-form:active {
+    background-color: var(--verde3);
+    transition: transform 0.1s;
+}
+
+#submit-form:hover { 
+    cursor: pointer;
+    transform: scale(1.01);
+    transition: transform 0.1s;
+
+    background-color: var(--verde2);
+}
+
+/* Animação bg */
+
+@keyframes ondasBg{
+    0% {
+        border-bottom-left-radius: 50%;
+
+    }
+    
+    50% {
+        border-bottom-left-radius: 100%; 
+    }
+
+    100% {
+        border-bottom-left-radius: 50%;
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        background-size: 800%;
+        background-position: 35% 25%;
+    }
+    to {
+        background-size: 200%;
+        background-position: 50% 50%;
+    }
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+#bg-galaxia {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+    height: 100%;
+    width: 50%;
+    z-index: -1;
+
+    object-fit: cover;
+
+    border-bottom-left-radius: 100%; 
+
+    background-image: url("../img/galaxia.jpg");
+    background-repeat: no-repeat;
+
+    animation: 10s linear infinite ondasBg, 15s ease-in-out forwards zoomOut;
+}
